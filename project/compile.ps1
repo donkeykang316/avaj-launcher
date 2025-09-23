@@ -1,0 +1,1 @@
+javac ro/academyplus/avaj/simulator/*.java && java ro.academyplus.avaj.simulator.Simulator "      scenario.txt  "
