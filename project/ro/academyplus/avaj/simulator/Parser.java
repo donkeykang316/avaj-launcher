@@ -15,12 +15,18 @@ public class Parser {
     private static final Set<String> VALID_TYPE = Set.of("JetPlane", "Helicopter", "Balloon", "Baloon");
     private static Set<String> TYPE_NAME = new HashSet<>();
     private static List<Vehicle> vehicleList = new ArrayList<>();
+    private static int simulationCycle;
     private static int id = 1;
+    private static List<String> registeredVehicle = new ArrayList<>();
 
     // Constructor
     public Parser(String filePath) {
         this.filePath = filePath;
     }
+
+    public int getSimCycle() {return this.simulationCycle;}
+    public void setSimCycle(int simulationCycle) {this.simulationCycle = simulationCycle;}
+    public List<String> getRegisteredVehicle() {return this.registeredVehicle;}
 
     private boolean lineValidator (String line) {
         String[] arr = line.split("\\s+");
@@ -81,10 +87,21 @@ public class Parser {
         vehicle.setID(this.id);
         this.id++;
         vehicle.setLongtitude(longtitudeInt);
-        vehicle.setlatitude(latitudeInt);
+        vehicle.setLatitude(latitudeInt);
         vehicle.setHeight(heightInt);
 
         this.vehicleList.add(vehicle);
+        //System.out.println("Tower says: " +
+        //    vehicle.getType() +
+        //    "#" + vehicle.getName() +
+        //    "("+ vehicle.getID() + ") " +
+        //    "registered to weather tower."
+        //    );
+        this.registeredVehicle.add("Tower says: " +
+            vehicle.getType() +
+            "#" + vehicle.getName() +
+            "("+ vehicle.getID() + ") " +
+            "registered to weather tower.");      
 
         return true;
     }
@@ -99,6 +116,7 @@ public class Parser {
                         System.out.println("The iteration line incorrect: " + line);
                         return false;
                     }
+                    setSimCycle(Integer.parseInt(line.trim()));
                     i++;
                     continue;
                 } else if (!line.isEmpty() && !lineValidator(line)) {
@@ -115,7 +133,6 @@ public class Parser {
     public List<Vehicle> parsing() {
         if (!fileValidation())
             System.exit(1);
-        System.out.println("File validation sucess!");
 
         return vehicleList;
     }

@@ -15,7 +15,7 @@ public class Vehicle {
     public String getName() {return this.name;}
     public int getID() {return this.id;};
     public int getLongtitude() {return this.longtitude;}
-    public int getlatitude() {return this.latitude;}
+    public int getLatitude() {return this.latitude;}
     public int getHeight() {return this.height;}
 
     //setter
@@ -23,6 +23,6 @@ public class Vehicle {
     public void setName(String Name) {this.name = Name;}
     public void setID(int id) {this.id = id;}
     public void setLongtitude(int longtitude) {this.longtitude = longtitude;}
-    public void setlatitude(int latitude) {this.latitude = latitude;}
+    public void setLatitude(int latitude) {this.latitude = latitude;}
     public void setHeight(int height) {this.height = height;}
 }
