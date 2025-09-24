@@ -60,7 +60,7 @@ public class Simulator {
                 Vehicle airCraft = vehicleList.get(i);
                 WeatherType weathertype = weatherGenerator(airCraft);
                 switch (weathertype) {
-                    case WeatherType.SUN:
+                    case SUN:
                         if (airCraft.getType().equals("JetPlane")) {
                             airCraft.setLatitude(airCraft.getLatitude() + 10);
                             airCraft.setHeight(airCraft.getHeight() + 2);
@@ -78,7 +78,7 @@ public class Simulator {
                             "I love the sun :)"
                         );
                         break;
-                    case WeatherType.RAIN:
+                    case RAIN:
                         if (airCraft.getType().equals("JetPlane")) {
                             airCraft.setLatitude(airCraft.getLatitude() + 5);
                         } else if (airCraft.getType().equals("Helicopter")) {
@@ -93,7 +93,7 @@ public class Simulator {
                             "You made me so wet :("
                         );
                         break;
-                    case WeatherType.FOG:
+                    case FOG:
                         if (airCraft.getType().equals("JetPlane")) {
                             airCraft.setLatitude(airCraft.getLatitude() + 1);
                         } else if (airCraft.getType().equals("Helicopter")) {
@@ -108,7 +108,7 @@ public class Simulator {
                             "Well, I can't see -_-"
                         );
                         break;
-                    case WeatherType.SNOW:
+                    case SNOW:
                         if (airCraft.getType().equals("JetPlane")) {
                             airCraft.setHeight(airCraft.getHeight() - 7);
                         } else if (airCraft.getType().equals("Helicopter")) {
